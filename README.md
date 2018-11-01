@@ -1,6 +1,6 @@
 # SlackPortal
 
-SlackPortal: Create a share channel for your slack workspaces
+SlackPortal: Create a share channel for your Slack workspaces
 
 ## Description
 

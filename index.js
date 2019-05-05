@@ -111,7 +111,19 @@ function generateEmojiAttachment(local_web, res) {
 }
 
 function removeMentionTag(text) {
-  return text && text.replace(/[<>]/g, '');
+  /*
+   * User mention: <@[A-Z0-9]{9}>
+   * URL: <http://example.com>
+   */
+  let pattern = /<@([A-Z0-9]*)>/g
+  let result = undefined;
+  let new_text = text;
+  while (result = pattern.exec(text)) {
+    let with_quotes = result[0];
+    let without_quotes = result[1];
+    new_text = new_text.replace(with_quotes, without_quotes);
+  }
+  return new_text;
 }
 
 function getNameFromUser(user) {
